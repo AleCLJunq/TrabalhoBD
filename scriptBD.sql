@@ -1,36 +1,36 @@
-CREATE TABLE Ingredientes 
+CREATE TABLE IF NOT EXISTS Ingredientes 
 ( 
  Id INT PRIMARY KEY AUTO_INCREMENT,  
  Nome VARCHAR(255),  
 ); 
 
-CREATE TABLE Pratos 
+CREATE TABLE IF NOT EXISTS Pratos 
 ( 
  Id INT PRIMARY KEY AUTO_INCREMENT,  
  Nome VARCHAR(255),  
 ); 
 
-CREATE TABLE AlergenicosRestrições 
+CREATE TABLE IF NOT EXISTS AlergenicosRestrições 
 ( 
  Id INT PRIMARY KEY AUTO_INCREMENT,  
  Nome VARCHAR(255) NOT NULL,  
 ); 
 
-CREATE TABLE Cardapio 
+CREATE TABLE IF NOT EXISTS Cardapio 
 ( 
  Refeição VARCHAR(255),  
  Dia DATE,  
  Id INT PRIMARY KEY AUTO_INCREMENT,  
 ); 
 
-CREATE TABLE Restaurante 
+CREATE TABLE IF NOT EXISTS Restaurante 
 ( 
  Nome VARCHAR(255),  
  Id INT PRIMARY KEY AUTO_INCREMENT,  
  Tipo VARCHAR(255),  
 ); 
 
-CREATE TABLE Reabastecimento 
+CREATE TABLE IF NOT EXISTS Reabastecimento 
 ( 
  Id INT PRIMARY KEY AUTO_INCREMENT,  
  Valor FLOAT NOT NULL,  
@@ -39,7 +39,7 @@ CREATE TABLE Reabastecimento
  idFornecedor INT,  
 ); 
 
-CREATE TABLE Fornecedor 
+CREATE TABLE IF NOT EXISTS Fornecedor 
 ( 
  Nome VARCHAR(255),  
  CPF/CNPJ CHAR(11) NOT NULL,  
@@ -49,13 +49,13 @@ CREATE TABLE Fornecedor
  Endereço VARCHAR(255),  
 ); 
 
-CREATE TABLE Estoque 
+CREATE TABLE IF NOT EXISTS Estoque 
 ( 
  Id INT PRIMARY KEY,  
  Nome VARCHAR(255),  
 ); 
 
-CREATE TABLE Cliente 
+CREATE TABLE IF NOT EXISTS Cliente 
 ( 
  Grupo INT NOT NULL,  
  Saldo FLOAT NOT NULL DEFAULT '0',  
@@ -63,7 +63,7 @@ CREATE TABLE Cliente
  CPF CHAR(11)INT PRIMARY KEY,  
 ); 
 
-CREATE TABLE Compra 
+CREATE TABLE IF NOT EXISTS Compra 
 ( 
  Id INT PRIMARY KEY AUTO_INCREMENT,  
  Data INT NOT NULL,  
@@ -73,44 +73,44 @@ CREATE TABLE Compra
  idRestaurante INT,  
 ); 
 
-CREATE TABLE Fornece 
+CREATE TABLE IF NOT EXISTS Fornece 
 ( 
  idIngrediente INT PRIMARY KEY,  
  idFornecedor INT PRIMARY KEY,  
 ); 
 
-CREATE TABLE Reposição 
+CREATE TABLE IF NOT EXISTS Reposição 
 ( 
  idIngrediente INT PRIMARY KEY,  
  idReabastecimento INT PRIMARY KEY,  
 ); 
 
-CREATE TABLE IngredientesEstoque 
+CREATE TABLE IF NOT EXISTS IngredientesEstoque 
 ( 
  Quantidade INT,  
  idIngrediente INT PRIMARY KEY,  
  idIngrediente INT PRIMARY KEY,  
 ); 
 
-CREATE TABLE IngredientesPrato 
+CREATE TABLE IF NOT EXISTS IngredientesPrato 
 ( 
  IdIngrediente INT PRIMARY KEY,  
  IdPrato INT PRIMARY KEY,  
 ); 
 
-CREATE TABLE PratoCardapio 
+CREATE TABLE IF NOT EXISTS PratoCardapio 
 ( 
  IdPrato INT PRIMARY KEY,  
  IdCardapio INT PRIMARY KEY,  
 ); 
 
-CREATE TABLE CardapioRestaurante 
+CREATE TABLE IF NOT EXISTS CardapioRestaurante 
 ( 
  IdCardapio INT PRIMARY KEY,  
  IdRestaurante INT PRIMARY KEY,  
 ); 
 
-CREATE TABLE AlergiasRestriçõesIngredientes 
+CREATE TABLE IF NOT EXISTS AlergiasRestriçõesIngredientes 
 ( 
  IdIngrediente INT PRIMARY KEY,  
  IdAler/Rest INT PRIMARY KEY,  
