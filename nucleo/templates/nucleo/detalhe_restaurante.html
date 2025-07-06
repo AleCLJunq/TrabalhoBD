@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cardápios de {{ restaurante.nome }}</title>
+</head>
+<body>
+    <h1>{{ restaurante.nome }}</h1>
+    <h2>Cardápios da Semana</h2>
+
+    {% for cardapio in cardapios %}
+        <details {% if forloop.first %}open{% endif %}>
+
+            <summary>
+                <strong>{{ cardapio.refeicao }} de {{ cardapio.dia|date:"d/m/Y" }}</strong>
+            </summary>
+
+            <ul>
+                {% for prato in cardapio.pratos.all %}
+                    <li>{{ prato.nome }}</li>
+                {% endfor %}
+            </ul>
+
+        </details>
+
+    {% empty %}
+        <p>Nenhum cardápio cadastrado para este restaurante.</p>
+    {% endfor %}
+
+    <br>
+    <a href="{% url 'lista_restaurantes' %}">Voltar para a lista de restaurantes</a>
+</body>
+</html>

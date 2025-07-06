@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurantes Universitários - UnB</title>
+</head>
+<body>
+    <h1>Restaurantes Disponíveis</h1>
+    <ul>
+        {% for restaurante in restaurantes %}
+            <li>
+                <a href="{% url 'detalhe_restaurante' restaurante.id %}">
+                    {{ restaurante.nome }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
