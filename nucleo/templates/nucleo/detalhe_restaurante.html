@@ -16,7 +16,13 @@
 
             <ul>
                 {% for prato in cardapio.pratos.all %}
-                    <li>{{ prato.nome }}</li>
+                    <li>
+                        {{ prato.nome }}
+                        {% if prato.imagem %}
+                            <br>
+                            <img src="{{ prato.imagem.url }}" alt="Foto de {{ prato.nome }}" width="150">
+                        {% endif %}
+                    </li>
                 {% endfor %}
             </ul>
 
