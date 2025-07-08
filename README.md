@@ -97,5 +97,5 @@ A aplicação estará disponível nos seguintes endereços:
 * **Painel de Administração (CRUD):** `http://127.0.0.1:8000/admin/`
 
 ## Autores
-* [Alexandre Junqueira]
-* [Rodrigo Rafik]
+* Alexandre Junqueira
+* Rodrigo Rafik
