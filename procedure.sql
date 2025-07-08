@@ -23,3 +23,5 @@ BEGIN
     END IF;
 END;
 $$;
+
+--Ex: CALL sp_registrar_compra('12345678901', 1, 50.00);

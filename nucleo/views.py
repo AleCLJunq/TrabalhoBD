@@ -12,7 +12,6 @@ def lista_restaurantes(request):
 
 def detalhe_restaurante(request, restaurante_id):
     restaurante = get_object_or_404(Restaurante, pk=restaurante_id)
-    # Removemos o '-' para ordenar por 'dia' em ordem crescente
     cardapios = restaurante.cardapios.order_by('dia').all()
     contexto = {
         'restaurante': restaurante,
