@@ -20,7 +20,7 @@
                         {{ prato.nome }}
                         {% if prato.imagem %}
                             <br>
-                            <img src="{{ prato.imagem.url }}" alt="Foto de {{ prato.nome }}" width="150">
+                            <img src="{% url 'imagem_prato' prato.id %}" alt="Foto de {{ prato.nome }}" width="150">
                         {% endif %}
                     </li>
                 {% endfor %}

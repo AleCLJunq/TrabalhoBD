@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Restaurante, Cardapio
+from django.http import HttpResponse 
+from .models import Restaurante, Cardapio, Pratos
 
 def lista_restaurantes(request):
     restaurantes = Restaurante.objects.all()
@@ -18,4 +19,13 @@ def detalhe_restaurante(request, restaurante_id):
         'cardapios': cardapios
     }
     return render(request, 'nucleo/detalhe_restaurante.html', contexto)
+
+
+def imagem_prato(request, prato_id):
+    prato = get_object_or_404(Pratos, pk=prato_id)
+    if prato.imagem:
+        
+        return HttpResponse(prato.imagem, content_type='image/jpeg')
+    else:
+        return HttpResponse(status=404)
     

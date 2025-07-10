@@ -55,10 +55,9 @@ class Ingredientes(models.Model):
 
 class Pratos(models.Model):
     nome = models.CharField(max_length=150)
-    imagem = models.ImageField(upload_to='pratos_imagens/', blank=True, null=True)
-    
-    ingredientes = models.ManyToManyField(Ingredientes, related_name="pratos")
+    imagem = models.BinaryField(blank=True, null=True)
 
+    ingredientes = models.ManyToManyField(Ingredientes, related_name="pratos")
     class Meta:
         verbose_name_plural = "Pratos"
 
